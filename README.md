@@ -11,7 +11,7 @@ Aplicación web para administrar un catálogo de productos mediante una interfaz
 - **Formularios modales:** creación y edición de productos mediante formularios.
 - **Confirmación de eliminación:** modal de confirmación antes de eliminar un registro.
 - **Notificaciones:** mensajes de éxito y error mediante Sonner.
-- **Estados de carga y errores:** manejo de solicitudes HTTP y cancelación de peticiones cuando corresponde.
+- **Estados de carga y errores:** manejo de solicitudes HTTP, indicador de carga (`Spinner`) y cancelación de peticiones cuando corresponde.
 - **Diseño responsive:** interfaz adaptable a diferentes tamaños de pantalla.
 - **Interfaz oscura:** diseño con Tailwind CSS, acentos morados y azules.
 
@@ -24,6 +24,7 @@ Aplicación web para administrar un catálogo de productos mediante una interfaz
 - **React Router** — navegación de la aplicación, si se utiliza en la configuración actual.
 - **Sonner** — notificaciones.
 - **Tabler Icons React** — iconografía.
+- **ESLint** — análisis estático para mantener un estilo de código consistente.
 
 ## Requisitos previos
 
@@ -58,6 +59,15 @@ Aplicación web para administrar un catálogo de productos mediante una interfaz
 
 5. Abre en el navegador la URL que indique Vite, normalmente `http://localhost:5173`.
 
+## Scripts disponibles
+
+| Comando | Descripción |
+|---|---|
+| `npm run dev` | Inicia el servidor de desarrollo |
+| `npm run build` | Genera la versión de producción en `dist/` |
+| `npm run preview` | Previsualiza la compilación de producción |
+| `npm run lint` | Ejecuta ESLint sobre el código |
+
 ## Configuración de la API
 
 El proyecto utiliza MockAPI como backend temporal.
@@ -82,19 +92,34 @@ La paginación utiliza los parámetros `page` y `limit` para solicitar los produ
 ## Estructura del proyecto
 
 ```text
-src/
-├── api/
-│   └── productos.js
-├── components/
-│   ├── ProductoLista.jsx
-│   ├── ProductoForm.jsx
-│   ├── ProductoModal.jsx
-│   └── EliminarProductoModal.jsx
-├── pages/
-│   ├── ProductoModal.jsx
-│   └── ProductoListaPagina.jsx
-├── App.jsx
-└── main.jsx
+.
+├── public/
+│   ├── favicon.svg
+│   └── icons.svg
+├── src/
+│   ├── api/
+│   │   └── productos.js
+│   ├── assets/
+│   │   ├── hero.png
+│   │   ├── react.svg
+│   │   └── vite.svg
+│   ├── components/
+│   │   ├── EliminarProductoModal.jsx
+│   │   ├── Layout.jsx
+│   │   ├── ProductoForm.jsx
+│   │   ├── ProductoLista.jsx
+│   │   ├── ProductoModal.jsx
+│   │   └── Spinner.jsx
+│   ├── pages/
+│   │   ├── HomePage.jsx
+│   │   └── ProductoListaPagina.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── eslint.config.js
+├── index.html
+├── package.json
+└── vite.config.js
 ```
 
 La estructura puede variar según los componentes y páginas adicionales de la aplicación.
