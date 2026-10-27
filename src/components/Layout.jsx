@@ -7,12 +7,13 @@ import {
 import { useState } from "react";
 import { Outlet } from "react-router";
 import { NavLink } from "react-router";
+import Footer from "./Footer";
 
 export default function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="flex min-h-screen flex-col bg-gray-950 text-gray-100">
       {/* Barra superior */}
       <header className="fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between border-b border-gray-800 bg-gray-900 px-4 sm:px-6">
         <div className="flex items-center gap-3">
@@ -65,7 +66,7 @@ export default function Layout() {
 
           <nav className="space-y-1">
             <NavLink
-              to="/"
+              to="/admin/dashboard"
               onClick={() => setSidebarOpen(false)}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-colors ${
@@ -80,7 +81,7 @@ export default function Layout() {
             </NavLink>
 
             <NavLink
-              to="/productos"
+              to="/admin/productos"
               onClick={() => setSidebarOpen(false)}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-colors ${
@@ -110,12 +111,14 @@ export default function Layout() {
 
       {/* Contenido principal */}
       <main
-        className={`min-h-screen pt-16 transition-all duration-300 ${
+        className={`flex-1 pt-16 transition-all duration-300 ${
           sidebarOpen ? "lg:pl-64" : "lg:pl-0"
         }`}
       >
         <Outlet />
       </main>
+
+      <Footer sidebarOpen={sidebarOpen} />
     </div>
   );
 }
