@@ -1,9 +1,4 @@
-import {
-  IconPackage,
-  IconBrandGithub,
-  IconBrandTwitter,
-  IconBrandLinkedin,
-} from "@tabler/icons-react";
+import { IconPackage, IconBrandGithub } from "@tabler/icons-react";
 import { Link } from "react-router";
 
 export default function Footer({ sidebarOpen = false }) {
@@ -33,50 +28,36 @@ export default function Footer({ sidebarOpen = false }) {
             className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-gray-400"
           >
             <Link
-              to="/"
+              to="/admin/dashboard"
               className="transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               Dashboard
             </Link>
             <Link
-              to="/productos"
+              to="/admin/productos"
               className="transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               Productos
             </Link>
-            <a
-              href="#"
+            <Link
+              to="/"
               className="transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
-              Soporte
-            </a>
+              Página de inicio
+            </Link>
           </nav>
 
           {/* Redes sociales */}
           <div className="flex items-center gap-1">
             <a
-              href="#"
-              aria-label="GitHub"
-              title="GitHub"
+              href="https://github.com/Geffrerson7/products-crud"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Código fuente en GitHub"
+              title="Código fuente en GitHub"
               className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
             >
               <IconBrandGithub size={20} />
-            </a>
-            <a
-              href="#"
-              aria-label="Twitter"
-              title="Twitter"
-              className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
-            >
-              <IconBrandTwitter size={20} />
-            </a>
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              title="LinkedIn"
-              className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
-            >
-              <IconBrandLinkedin size={20} />
             </a>
           </div>
         </div>
@@ -84,7 +65,7 @@ export default function Footer({ sidebarOpen = false }) {
         {/* Copyright */}
         <div className="mt-6 flex flex-col items-center justify-between gap-2 border-t border-gray-800 pt-6 text-xs text-gray-500 sm:flex-row">
           <p>© {anio} ProductAdmin. Todos los derechos reservados.</p>
-          <p>ProductAdmin · v1.0</p>
+          <p>Proyecto de portafolio</p>
         </div>
       </div>
     </footer>

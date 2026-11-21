@@ -1,9 +1,4 @@
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconBrandTwitter,
-  IconPackage,
-} from "@tabler/icons-react";
+import { IconBrandGithub, IconPackage } from "@tabler/icons-react";
 import { Link } from "react-router";
 
 const columnas = [
@@ -12,23 +7,21 @@ const columnas = [
     enlaces: [
       { label: "Cómo funciona", href: "#how-it-works" },
       { label: "Precios", href: "#pricing" },
-      { label: "Catálogo", to: "/productos" },
+      { label: "Catálogo", to: "/admin/productos" },
     ],
   },
   {
     titulo: "Empresa",
     enlaces: [
       { label: "Sobre nosotros", href: "#about" },
-      { label: "Soporte", href: "#" },
-      { label: "Contacto", href: "#" },
+      { label: "Código fuente", href: "https://github.com/Geffrerson7/products-crud", externo: true },
     ],
   },
   {
-    titulo: "Cuenta",
+    titulo: "Panel",
     enlaces: [
-      { label: "Iniciar sesión", to: "/login" },
-      { label: "Crear cuenta", to: "/login" },
-      { label: "Dashboard", to: "/dashboard" },
+      { label: "Dashboard", to: "/admin/dashboard" },
+      { label: "Productos", to: "/admin/productos" },
     ],
   },
 ];
@@ -62,28 +55,14 @@ export default function FooterLanding() {
 
             <div className="mt-5 flex items-center gap-1">
               <a
-                href="#"
-                aria-label="GitHub"
-                title="GitHub"
+                href="https://github.com/Geffrerson7/products-crud"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Código fuente en GitHub"
+                title="Código fuente en GitHub"
                 className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
               >
                 <IconBrandGithub size={20} />
-              </a>
-              <a
-                href="#"
-                aria-label="Twitter"
-                title="Twitter"
-                className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
-              >
-                <IconBrandTwitter size={20} />
-              </a>
-              <a
-                href="#"
-                aria-label="LinkedIn"
-                title="LinkedIn"
-                className="rounded-lg p-2 text-gray-400 transition-colors hover:bg-gray-800 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
-              >
-                <IconBrandLinkedin size={20} />
               </a>
             </div>
           </div>
@@ -96,11 +75,15 @@ export default function FooterLanding() {
               </h2>
 
               <ul className="mt-4 space-y-3 text-sm">
-                {enlaces.map(({ label, to, href }) => (
+                {enlaces.map(({ label, to, href, externo }) => (
                   <li key={label}>
                     {href ? (
                       <a
                         href={href}
+                        {...(externo && {
+                          target: "_blank",
+                          rel: "noopener noreferrer",
+                        })}
                         className="rounded-lg text-gray-400 transition-colors hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                       >
                         {label}
@@ -124,23 +107,7 @@ export default function FooterLanding() {
         <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-gray-800 pt-6 text-xs text-gray-500 sm:flex-row">
           <p>© {anio} ProductAdmin. Todos los derechos reservados.</p>
 
-          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            <li>
-              <a href="#" className="transition-colors hover:text-white">
-                Privacidad
-              </a>
-            </li>
-            <li>
-              <a href="#" className="transition-colors hover:text-white">
-                Términos
-              </a>
-            </li>
-            <li>
-              <a href="#" className="transition-colors hover:text-white">
-                Cookies
-              </a>
-            </li>
-          </ul>
+          <p>Proyecto de portafolio. Los datos son de demostración.</p>
         </div>
       </div>
     </footer>
