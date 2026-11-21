@@ -16,7 +16,6 @@ export default function ProductoListaPagina() {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [errorAccion, setErrorAccion] = useState(null);
   const [guardando, setGuardando] = useState(false);
   const [version, setVersion] = useState(0);
   const [editando, setEditando] = useState(null);
@@ -41,6 +40,15 @@ export default function ProductoListaPagina() {
           obtenerTotalProductos(controlador.signal),
         ]);
 
+        const ultimaPagina = Math.max(1, Math.ceil(total / LIMITE));
+
+        // Si la página quedó vacía (p. ej. tras eliminar su último producto),
+        // saltamos a la última página que sí tiene productos.
+        if (resultado.length === 0 && pagina > ultimaPagina) {
+          setPagina(ultimaPagina);
+          return;
+        }
+
         setProductos(resultado);
         setTotalProductos(total);
       } catch (err) {
@@ -64,7 +72,6 @@ export default function ProductoListaPagina() {
   async function guardarProducto(datos) {
     try {
       setGuardando(true);
-      setErrorAccion(null);
 
       if (editando) {
         await actualizarProducto(editando.id, datos);
@@ -80,13 +87,10 @@ export default function ProductoListaPagina() {
       return true;
     } catch (err) {
       console.error(err);
-      if (editando) {
-        setErrorAccion("No se pudo editar el producto.");
-        toast.error(errorAccion);
-      } else {
-        setErrorAccion("No se pudo guardar el producto.");
-        toast.error(errorAccion);
-      }
+      const mensaje = editando
+        ? "No se pudo editar el producto."
+        : "No se pudo guardar el producto.";
+      toast.error(mensaje);
 
       return false;
     } finally {

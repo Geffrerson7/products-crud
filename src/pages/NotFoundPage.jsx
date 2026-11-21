@@ -5,7 +5,7 @@ export default function NotFoundPage() {
   const navigate = useNavigate();
 
   return (
-    <div className="mx-auto flex max-w-7xl flex-col items-center justify-center px-4 py-16 sm:px-6 lg:px-8">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gray-950 px-4 py-16 text-gray-100 sm:px-6 lg:px-8">
       <div className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 px-6 py-12 text-center shadow-xl sm:px-10 sm:py-16">
         {/* Resplandor decorativo */}
         <div
@@ -29,16 +29,16 @@ export default function NotFoundPage() {
 
           <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-gray-400">
             Lo sentimos, la página que buscas no existe o fue movida. Revisa la
-            dirección o vuelve al panel principal para continuar.
+            dirección o vuelve al inicio para continuar.
           </p>
 
           <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
             <Link
-              to="/admin/dashboard"
+              to="/"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-purple-600 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-950/20 transition hover:from-purple-500 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-950 active:scale-[0.98]"
             >
               <IconHome size={20} stroke={1.8} />
-              Ir al dashboard
+              Ir al inicio
             </Link>
 
             <Link
@@ -61,7 +61,7 @@ export default function NotFoundPage() {
         </div>
       </div>
 
-      <p className="mt-6 text-xs text-gray-600">ProductAdmin · v1.0</p>
-    </div>
+      <p className="mt-6 text-xs text-gray-600">ProductAdmin</p>
+    </main>
   );
 }

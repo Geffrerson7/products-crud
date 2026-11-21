@@ -165,10 +165,10 @@ export default function HomePage() {
 
           {/* Login */}
           <Link
-            to="/login"
+            to="/admin/dashboard"
             className="order-2 inline-flex items-center justify-center rounded-xl bg-linear-to-r from-purple-600 to-blue-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-purple-950/20 transition hover:from-purple-500 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-950 active:scale-[0.98] sm:order-3"
           >
-            Login
+            Abrir el panel
           </Link>
         </nav>
       </header>
@@ -211,16 +211,16 @@ export default function HomePage() {
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-purple-600 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-950/20 transition hover:from-purple-500 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-950 active:scale-[0.98]"
               >
                 <IconHome size={20} stroke={1.8} />
-                Solicita una Demo
+                Ver la demo
               </Link>
 
-              <Link
-                to="/productos"
+              <a
+                href="#pricing"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-700 bg-gray-800 px-5 py-3 text-sm font-semibold text-gray-300 transition hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-950 active:scale-[0.98]"
               >
                 <IconPackage size={20} stroke={1.8} />
                 Ver precios
-              </Link>
+              </a>
             </div>
           </div>
         </section>
@@ -259,7 +259,7 @@ export default function HomePage() {
                 </p>
 
                 <Link
-                  to="/productos"
+                  to="/admin/productos"
                   className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl border border-gray-700 bg-gray-800 px-5 py-3 text-sm font-semibold text-gray-300 transition hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-950 active:scale-[0.98]"
                 >
                   <IconPackage size={20} stroke={1.8} />
@@ -413,7 +413,7 @@ export default function HomePage() {
 
                   <div className="mt-auto pt-8">
                     <Link
-                      to={destacado ? "/productos" : "/login"}
+                      to={destacado ? "/admin/productos" : "/admin/dashboard"}
                       className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-950 active:scale-[0.98] ${
                         destacado
                           ? "bg-linear-to-r from-purple-600 to-blue-500 text-white shadow-lg shadow-purple-950/20 hover:from-purple-500 hover:to-blue-400"
@@ -443,17 +443,17 @@ export default function HomePage() {
             </h2>
 
             <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-gray-300 sm:text-base">
-              Crea tu cuenta gratis y descubre lo simple que puede ser
+              Prueba el panel y descubre lo simple que puede ser
               administrar tus productos.
             </p>
 
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <Link
-                to="/login"
+                to="/admin/dashboard"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r from-purple-600 to-blue-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-950/20 transition hover:from-purple-500 hover:to-blue-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-gray-950 active:scale-[0.98]"
               >
                 <IconPackage size={20} stroke={1.8} />
-                Crear cuenta gratis
+                Probar el panel
               </Link>
 
               <a
